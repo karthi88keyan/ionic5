@@ -1,20 +1,49 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
+<ion-header [translucent]="true" >
+  <ion-toolbar class="content">
+    <ion-title style="color: aliceblue;">
+      My Matches
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" >
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Blank</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-content class="content">
+    <ion-grid>
+      <ion-row class="forecast_container">
+        <ion-col size="10" *ngFor="let item of favoriteList;let i =index">
+          <ion-card [routerLink]="['/home/detail/',item.id]">   
+            <img [src]="item.image">
+            <ion-card-header>
+              <ion-card-title>{{item.name}}</ion-card-title>
+              <p>{{item.profileDetail}}</p>
+              <p>{{item.address}}</p>
+             
+            </ion-card-header>
+            <ion-card-content>
+            
+              <ion-grid>
+                <ion-row>
+                  <ion-col style="padding:0px !important;margin: 0px !important;">
+                    <ion-button  class="button-yes" shape="round" size="small" [routerLink]="['/home/detail/1']">Yes</ion-button>
+                    <ion-button shape="round" size="small" color="light">No</ion-button>
+                  </ion-col>
+                  
+                </ion-row>
+              </ion-grid>
+            </ion-card-content>
+            <!-- <div class="card-title">{{ item?.title }}</div>
+            <div>{{ item?.description }}</div>   -->
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>  
+    
+  </ion-content>  
+  
 </ion-content>

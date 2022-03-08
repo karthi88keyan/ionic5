@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ServiceService } from '../service.service';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  favoriteList:  any; 
 
-  constructor() {}
+  constructor(private service:ServiceService) {
+this.service.getUserData().subscribe(data=>{
+this.favoriteList=data;
+})
+    
+  }
+
 
 }

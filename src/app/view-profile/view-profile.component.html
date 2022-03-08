@@ -1,0 +1,54 @@
+<ion-header [translucent]="true" >
+  <ion-toolbar class="content">
+    <ion-title style="color: aliceblue;">
+      {{profileDetail?.id}} - {{profileDetail?.name}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" >
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="content">
+    <ion-grid>
+      <ion-row class="forecast_container">
+        <ion-col size="12" >
+          <ion-card >   
+            
+            <img [src]="profileDetail?.image">
+            <ion-card-header>
+              <ion-card-title>{{profileDetail?.name}}</ion-card-title>
+              <p>{{profileDetail?.profileDetail}}</p>
+              <p>{{profileDetail?.address}}</p>
+             
+            </ion-card-header>
+            <ion-card-content>
+            
+              <ion-grid>
+                <ion-row>
+                  <ion-col size="12" style="position:relative">
+                    <ion-icon name="star-outline"></ion-icon> 
+                    <ion-label style="display:inline;"> Shortlist</ion-label>
+                    <ion-label style="display:inline;margin-left: 20%;font-weight: bold;vertical-align: middle;">Like her? </ion-label>
+                    <ion-button class="btn-position"shape="round" size="small" style="top:0px;"  color="light" (click)="presentToast('Not Interested')"><ion-icon name="close-outline"></ion-icon></ion-button>
+                    <ion-button  class="button-yes btn-position" shape="round" style="top:0px;right: 2px;" size="small" (click)="presentToast('Interested')"><ion-icon name="checkmark-outline"></ion-icon></ion-button>
+                   
+                  </ion-col>
+                  
+                </ion-row>
+              </ion-grid>
+            </ion-card-content>
+            <!-- <div class="card-title">{{ item?.title }}</div>
+            <div>{{ item?.description }}</div>   -->
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>  
+    
+  </ion-content>  
+  
+</ion-content>
